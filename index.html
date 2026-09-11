@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7ee5f2ba27.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <div class="header-layout">
+            <div class="header">
+                <a href="index.html"><img src="assets/images/logo.png" alt="logo image"></a>
+                <div class="search-bar">
+                    <input type="text" id="user-search" placeholder="Search Something...">
+                    <button type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <button type="button" id="watchlist-btn"><i class="fa-regular fa-bookmark"></i>Watchlist</button>
+            </div>
+            <div class="nav">
+                <button type="button" id="home-btn">Home</button>
+                <button type="button" id="movies-btn">Movies</button>
+                <button type="button" id="series-btn">Series</button>
+            </div>
+        </div>
+
+        <!-- End of Header -->
+
+        <div class="todays-pick-screen">
+            <div class="todays-pick-layout">
+                <h1>Today's Pick</h1>
+                <div class="carousel-box">
+
+                </div>
+            </div>
+        </div>
+        <div class="movies-screen hidden">
+            <div class="movies-screen-layout">
+                <div class="categories">
+                    <button type="button" class="movie-category-button active">Popular</button>
+                    <button type="button" class="movie-category-button" data-genre-id="28">Action</button>
+                    <button type="button" class="movie-category-button" data-genre-id="12">Adventure</button>
+                    <button type="button" class="movie-category-button" data-genre-id="16">Animation</button>
+                    <button type="button" class="movie-category-button" data-genre-id="35">Comedy</button>
+                    <button type="button" class="movie-category-button" data-genre-id="80">Crime</button>
+                    <button type="button" class="movie-category-button" data-genre-id="99">Documentary</button>
+                    <button type="button" class="movie-category-button" data-genre-id="18">Drama</button>
+                    <button type="button" class="movie-category-button" data-genre-id="10751">Family</button>
+                    <button type="button" class="movie-category-button" data-genre-id="14">Fantasy</button>
+                    <button type="button" class="movie-category-button" data-genre-id="36">History</button>
+                    <button type="button" class="movie-category-button" data-genre-id="27">Horror</button>
+                    <button type="button" class="movie-category-button" data-genre-id="10402">Music</button>
+                    <button type="button" class="movie-category-button" data-genre-id="9648">Mystery</button>
+                    <button type="button" class="movie-category-button" data-genre-id="10749">Romance</button>
+                    <button type="button" class="movie-category-button" data-genre-id="878">Science Fiction</button>
+                    <button type="button" class="movie-category-button" data-genre-id="10770">TV Movie</button>
+                    <button type="button" class="movie-category-button" data-genre-id="53">Thriller</button>
+                    <button type="button" class="movie-category-button" data-genre-id="10752">War</button>
+                    <button type="button" class="movie-category-button" data-genre-id="37">Western</button>
+                </div>
+                <div class="movies-grid">
+                        
+                </div>
+                <button class="load-more-btn">Load More</button>
+            </div>
+        </div>
+        <div class="series-screen hidden">
+            <div class="series-screen-layout">
+                <div class="categories-series">
+                    <button class="series-category-button active" data-genre-id="popular">Popular</button>
+                    <button class="series-category-button" data-genre-id="10759">Adventure</button>
+                    <button class="series-category-button" data-genre-id="35">Comedy</button>
+                    <button class="series-category-button" data-genre-id="80">Crime</button>
+                    <button class="series-category-button" data-genre-id="18">Drama</button>
+                    <button class="series-category-button" data-genre-id="10765">Sci-Fi & Fantasy</button>
+                </div>
+                <div class="series-grid">
+
+                </div>
+                <button class="load-more-btn">Load More</button>
+            </div>
+        </div>
+        <div class="watchlist-screen hidden">
+            <div class="watchlist-layout">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
