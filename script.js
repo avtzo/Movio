@@ -21,7 +21,7 @@ let page = 1;
 let currentCategory = "popular";
 
 async function getData(type, page = 1, genre = "popular", searchTerm = "") {
-    const apiKey = ""; // Your API Key Here
+    const apiKey = "201b39d015aaf1e265e180f86c16dcf2"; // Your API Key Here
     let baseUrl = "";
     
     if (type === "today pick") {
@@ -306,3 +306,4 @@ searchBtn.addEventListener("click", () => {
 
 displayTodayPick();
 displayMedia(1, "popular", "movies");
+

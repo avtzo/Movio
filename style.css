@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @keyframes slideFadeIn {
     from {
         opacity: 0;
@@ -6,8 +8,6 @@
         opacity: 1;
     }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -36,22 +36,25 @@ html {
     width: 100%;
 }
 
-/* --- Header Section --- */
+/* --- Dynamic Sticky Header Section --- */
 
 .header-layout {
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, #42275a, #734b6d);
     width: 100%;
-    padding: 10px 20px 20px 20px;
-    box-shadow: 2px 0 20px 2px black;
+    padding: 15px 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    min-height: 60px;
 }
 
 .header-layout img {
@@ -63,17 +66,17 @@ html {
 .search-bar {
     display: flex;
     align-items: center;
-    padding: 5px 15px;
-    background: rgba(255, 255, 255, 0.05); 
+    padding: 6px 15px;
+    background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(12px);           
     -webkit-backdrop-filter: blur(12px);   
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;                   
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .search-bar input {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
     background: transparent;
     outline: none;
@@ -82,8 +85,8 @@ html {
 }
 
 .search-bar input::placeholder {
-    color: rgba(245, 245, 245, 0.719);
-    font-size: 1.1rem;
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 1rem;
 }
 
 .search-bar button {
@@ -94,7 +97,7 @@ html {
     cursor: pointer;
 }
 
-.search-bar i:hover {
+.search-bar button:hover i {
     color: orange;
 }
 
@@ -104,10 +107,10 @@ html {
     outline: none;
     color: white;
     border: 2px solid white;
-    border-radius: 30px;
-    padding: 8px 18px;
+    border-radius: 50%;
+    padding: 8px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: transform 0.2s ease, border-color 0.2s ease;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -115,40 +118,43 @@ html {
 
 #watchlist-btn:hover {
     transform: scale(1.05);
+    border-color: orange;
 }
 
 /* --- Navigation --- */
 
 .nav {
     display: flex;
-    justify-content: space-evenly; 
-    gap: 2rem; 
-    margin-top: 20px;  
+    justify-content: center; 
+    gap: 1.5rem; 
+    margin-top: 15px;  
 }
 
 .nav button {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: white;
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;                   
     padding: 8px 24px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .nav button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* --- Main Content & Carousel --- */
 
+.main {
+    width: 100%;
+}
+
 .todays-pick-screen {
-    padding: 30px;
-    margin-top: 20px;
+    padding: 30px 20px;
     display: flex;
     justify-content: center;
 }
@@ -163,9 +169,9 @@ html {
 }
 
 .todays-pick-layout h1 {
-    font-size: 5rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
     font-weight: 700;
+    text-align: center;
 }
 
 .carousel-box {
@@ -215,111 +221,216 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding-bottom: 40px;
 }
 
 .active {
     transform: scale(1.05);
     color: orange !important;
+    border-color: orange !important;
 }
 
-.categories {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(10, 2fr);
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px; 
-    width: 90vw;
-    margin-top: 40px;
-    padding: 20px;
-}
-
+.categories,
 .categories-series {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;    
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px; 
     width: 90vw;
-    margin-top: 40px;
+    max-width: 1200px;
+    margin-top: 30px;
     padding: 20px;
 }
 
 .categories button,
 .categories-series button {
     font-size: 1rem;
-    width: 160px;
-    height: 40px;
-    font-weight: 800;
+    padding: 8px 16px;
+    min-width: 120px;
+    font-weight: 700;
     color: white;
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px; 
-    transition: 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .categories button:hover,
 .categories-series button:hover {
     cursor: pointer;
     transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .movies-grid,
 .watchlist-layout,
 .series-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90vw;
+    max-width: 1200px;
+    margin-top: 30px;
 }
 
 #watchlist-msg {
     font-size: 2rem;
     font-weight: 700;
-    width: 400px;
+    width: 100%;
     margin-top: 30px;
     text-align: center;
 }
 
+/* Movie Card */
 .movie-card {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 20px;
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.25); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px; 
-    padding: 20px;
+    padding: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .movie-card img {
-    width: 350px;
-    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
-.movie-card button {
-    background: transparent;
-    color: white;
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(12px);           
-    -webkit-backdrop-filter: blur(12px);   
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%; 
-    padding: 5px;
-    font-size: 1.2rem;
+.movie-card-info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.movie-card-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.movie-card-info span {
+    font-size: 0.9rem;
+    color: #ffd700;
+}
+
+.movie-card .add-to-watchlist-btn {
     position: absolute;
+    top: 20px;
     right: 20px;
-    transition: 0.1s;
+    background: rgba(0, 0, 0, 0.65); 
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 5;
 }
 
-.movie-card button:hover {
+.movie-card .add-to-watchlist-btn:hover {
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.load-more-btn {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px; 
+    padding: 10px 30px;
+    margin-top: 30px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.load-more-btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
     background: rgba(255, 255, 255, 0.2);
+}
+
+/* Media Queries (Responsive) */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        height: auto;
+    }
+    .header-layout {
+        padding: 10px 15px;
+    }
+    .header-layout img,
+    #logo {
+        width: 130px;
+        height: auto;
+        margin: 0 !important; 
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav button {
+        padding: 6px 14px;
+        font-size: 0.95rem;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .todays-pick-layout h1 {
+        font-size: 2.2rem;
+    }
+
+    .carousel-box {
+        height: 300px;
+    }
+
+    .movies-grid,
+    .series-grid,
+    .watchlist-layout {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        width: 95vw;
+    }
+
+    .movie-card {
+        padding: 8px;
+    }
+
+    .movie-card .add-to-watchlist-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
 }
