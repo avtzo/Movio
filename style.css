@@ -126,7 +126,7 @@ html {
 
 .nav {
     display: flex;
-    justify-content: center; 
+    justify-content: space-evenly; 
     gap: 1.5rem; 
     margin-top: 15px;  
 }
@@ -232,6 +232,11 @@ html {
     border-color: orange !important;
 }
 
+.active2 {
+    transform: scale(1.2);
+    box-shadow: 0 3px 10px black;
+}
+
 .categories,
 .categories-series {
     display: flex;
@@ -267,8 +272,19 @@ html {
     background: rgba(255, 255, 255, 0.25);
 }
 
+.watchlist-screen h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.watchlist-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
 .movies-grid,
-.watchlist-layout,
 .series-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -496,4 +512,13 @@ html {
         height: 32px;
         font-size: 0.85rem;
     }
+
+
+    .more-info-btn {
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 10px;
+    }
+
 }

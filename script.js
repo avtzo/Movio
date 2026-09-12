@@ -4,6 +4,7 @@ const watchlistBtn = document.getElementById("watchlist-btn");
 const homeBtn = document.getElementById("home-btn");
 const moviesBtn = document.getElementById("movies-btn");
 const seriesBtn = document.getElementById("series-btn");
+const navBtns = document.querySelectorAll(".nav-btn");
 const movieCategoryBtn = document.querySelectorAll(".movie-category-button");
 const seriesCategoryBtn = document.querySelectorAll(".series-category-button");
 const watchlistScreen = document.querySelector(".watchlist-screen");
@@ -262,6 +263,13 @@ watchlistBtn.addEventListener("click", () => {
     moviesScreen.classList.add("hidden");
     seriesScreen.classList.add("hidden");
     renderWatchlist();
+});
+
+navBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        navBtns.forEach((b) => b.classList.remove("active2"));
+        btn.classList.add("active2");
+    });
 });
 
 movieCategoryBtn.forEach((btn) => {
