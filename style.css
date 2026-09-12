@@ -66,6 +66,7 @@ html {
 .search-bar {
     display: flex;
     align-items: center;
+    margin-right: 150px;
     padding: 6px 15px;
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(12px);           
@@ -400,6 +401,7 @@ html {
 
     .search-bar {
         width: 100%;
+        margin-right: 0;
     }
 
     .search-bar input {
