@@ -323,6 +323,7 @@ html {
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.2;
+    max-width: 70%;
 }
 
 .movie-card-info span {
@@ -330,16 +331,11 @@ html {
     color: #ffd700;
 }
 
-.movie-card .add-to-watchlist-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.movie-card .add-to-watchlist-btn,
+.movie-card .more-info-btn {
     background: rgba(0, 0, 0, 0.65); 
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%; 
-    width: 36px;
-    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,10 +344,75 @@ html {
     z-index: 5;
 }
 
+.movie-card .add-to-watchlist-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%; 
+    width: 36px;
+    height: 36px;
+}
+
+.movie-card .more-info-btn {
+    position: absolute; 
+    right: 20px;
+    bottom: 20px;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.movie-card .more-info-btn:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+}
+
 .movie-card .add-to-watchlist-btn:hover {
     cursor: pointer;
     background: rgba(0, 0, 0, 0.9);
     transform: scale(1.1);
+}
+
+.more-info-box {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: black; 
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    overflow-y: auto;
+}
+
+.more-info-box > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.more-info-box h2 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.more-info-box p {
+    line-height: 1.5;
+}
+
+.close-more-info-btn {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .load-more-btn {

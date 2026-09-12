@@ -126,11 +126,12 @@ function createCardHTML(item) {
         ? `https://image.tmdb.org/t/p/w500${item.poster_path}` 
         : 'https://placehold.co/500x750?text=No+Image';
     const rating = item.vote_average ? item.vote_average.toFixed(1) : "N/A";
+    const overview = item.overview;
+    const releaseDate = item.release_date;    
 
     const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
     const isSaved = watchlist.some(w => String(w.id) === String(item.id));
     const iconClass = isSaved ? "fa-solid" : "fa-regular";
-
     return `
         <div class="movie-card" data-id="${item.id}" data-title="${encodeURIComponent(title)}" data-poster="${posterPath}" data-rating="${rating}">
             <div>
@@ -143,6 +144,17 @@ function createCardHTML(item) {
             <button type="button" class="add-to-watchlist-btn">
                 <i class="${iconClass} fa-bookmark"></i>
             </button>
+            <button type="button" class="more-info-btn">
+                More Info
+            </button>
+            <div class="more-info-box hidden">
+                <div>
+                    <h2>${title}</h2>
+                    <button type="button" class="close-more-info-btn"><i class="fa-solid fa-x"></i></button>
+                </div>
+                <p>${overview}</p>
+                <p>Release Date: ${releaseDate}</p>
+            </div>
         </div>
     `;
 }
@@ -150,7 +162,8 @@ function createCardHTML(item) {
 async function displayTodayPick() {
     const data = await getData("today pick");
     if (!data || !data.results) return;
-
+    console.log(data);
+    
     const movies = data.results.slice(0, 5);
     carouselBox.innerHTML = ""; 
 
@@ -306,4 +319,20 @@ searchBtn.addEventListener("click", () => {
 
 displayTodayPick();
 displayMedia(1, "popular", "movies");
+
+
+document.addEventListener("click", (e) => {
+    const moreInfoBtn = e.target.closest(".more-info-btn");
+    const closeMoreInfoBtn = e.target.closest(".close-more-info-btn");
+
+    if (moreInfoBtn) {
+        const card = moreInfoBtn.closest(".movie-card");
+        card?.querySelector(".more-info-box")?.classList.remove("hidden");
+    }
+
+    if (closeMoreInfoBtn) {
+        const card = closeMoreInfoBtn.closest(".movie-card");
+        card?.querySelector(".more-info-box")?.classList.add("hidden");
+    }
+});
 
