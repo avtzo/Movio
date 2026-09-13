@@ -45,7 +45,6 @@ html {
     width: 100%;
     padding: 15px 20px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -469,6 +468,7 @@ html {
 
     .nav {
         gap: 8px;
+        padding-bottom: 10px;
     }
 
     .nav button {
